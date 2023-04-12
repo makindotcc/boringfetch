@@ -1,0 +1,19 @@
+[package]
+name = "boringfetch"
+version = "0.1.0"
+license = "ISC"
+edition = "2018"
+exclude = ["index.node"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+tokio = { version = "1.21.0", features = ["rt-multi-thread", "macros"] }
+boringhyper = { git = "https://github.com/makindotcc/boringhyper", branch = "master" }
+hyper = { version = "0.14", features = ["client", "http1", "http2", "stream"] }
+
+[dependencies.neon]
+version = "0.10"
+default-features = false
+features = ["napi-6", "promise-api", "channel-api"]
