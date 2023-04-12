@@ -42,4 +42,21 @@ Promise {
   status: 200,
   body: '<!DOCTYPE html><html dir="ltr" lang="pl-PL">[...]',
 }
+// compared to vanilla node fetch:
+> fetch("https://www.canva.com/pl_pl/")
+  .then(async resp => [resp.status, await resp.text()])
+  .then(console.log)
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 1623,
+  [Symbol(trigger_async_id_symbol)]: 1622
+}
+> [
+  403,
+  '<!DOCTYPE html>\n' +
+    '<html lang="en-US">\n' +
+    '<head>\n' +
+    '    <title>Just a moment...</title>\n' +
+    [...]
+
 ```
